@@ -10,6 +10,7 @@ import model.entities.Seller;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class Program {
@@ -33,6 +34,11 @@ public class Program {
         for (Seller obj: list1) {
             System.out.println(obj);
         }
+
+        System.out.println("\n\n----------Test 4----------");
+        Seller newSeller = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.00, departmet);
+        sellerDao.insert(newSeller);
+        System.out.println("Inserted! New id = " + newSeller.getId());
 
 
     }
