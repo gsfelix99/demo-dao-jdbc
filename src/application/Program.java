@@ -3,6 +3,7 @@ package application;
 import db.DB;
 import db.DbIntegrityException;
 import model.dao.DaoFactory;
+import model.dao.DepartmentDAO;
 import model.dao.SellerDao;
 import model.entities.Departmet;
 import model.entities.Seller;
@@ -19,11 +20,18 @@ public class Program {
 
         Scanner scanner = new Scanner(System.in);
 
-        SellerDao sellerDao = DaoFactory.createSellerDao();
-        System.out.println("----------Test 1----------");
-        Seller seller = sellerDao.findById(3);
-        System.out.println(seller);
+//        SellerDao sellerDao = DaoFactory.createSellerDao();
+        DepartmentDAO departmentDAO = DaoFactory.createDepartmentDao();
 
+        System.out.println("----------Test 1----------");
+        Departmet departmet = new Departmet(8, "test");
+        departmentDAO.update(departmet);
+        System.out.println("Done");
+
+/**
+ *         System.out.println("----------Test 1----------");
+ *         Seller seller = sellerDao.findById(3);
+ *         System.out.println(seller);
         System.out.println("\n\n----------Test 2----------");
         Departmet departmet  = new Departmet(2, null);
         List<Seller> list = sellerDao.findByDepartment(departmet);
@@ -55,6 +63,6 @@ public class Program {
         int id = scanner.nextInt();
         sellerDao.deleteById(id);
 
-
+*/
     }
 }
